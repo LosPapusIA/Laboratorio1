@@ -42,8 +42,8 @@ Posición del Queso: (5, 6)
 |-----------|-------|
 | **Completo** | ✅ Sí - Siempre encuentra una solución si existe |
 | **Óptimo** | ✅ Sí - Encuentra el camino más corto (cuando el costo es uniforme) |
-| **Complejidad Temporal** | O(b^d) donde b=factor de ramificación, d=profundidad de la solución |
-| **Complejidad Espacial** | O(b^d) - Debe almacenar todos los nodos en memoria |
+| **Complejidad Temporal** | O(b^d) = O(2.3^12) ≈ **28 nodos explorados** |
+| **Complejidad Espacial** | O(b^d) ≈ **28 nodos en memoria** |
 
 **Restricciones de Movimiento:**
 - Movimientos permitidos: **Arriba, Abajo, Izquierda, Derecha** (4 direcciones)
@@ -70,8 +70,8 @@ Posición del Queso: (5, 6)
 |-----------|-------|
 | **Completo** | ✅ Sí - Con heurística admisible |
 | **Óptimo** | ✅ Sí - Con heurística admisible y consistente |
-| **Complejidad Temporal** | O(b^d) en el peor caso, pero generalmente mucho mejor |
-| **Complejidad Espacial** | O(b^d) - Mantiene todos los nodos generados en memoria |
+| **Complejidad Temporal** | O(b^d) ≈ **15 nodos explorados** (mejor que BFS por heurística) |
+| **Complejidad Espacial** | O(b^d) ≈ **15 nodos en memoria** |
 
 **Heurística Utilizada:**
 ```
@@ -91,6 +91,14 @@ Esta heurística es **admisible** (nunca sobreestima) y **consistente**.
 ---
 
 ### 📊 Resultados del Problema 1
+
+#### 1. Resultado de la búsqueda en anchura (BFS - Breadth-First Search)
+![Resultado de la búsqueda en anchura 1](capturas/anchura-1.png)
+![Resultado de la búsqueda en anchura 2](capturas/anchura-2.png)
+
+#### 2. Resultado de la búsqueda Búsqueda A* (A-Star)
+![Resultado de la búsqueda en estrella 1](capturas/estrella-1.png)
+![Resultado de la búsqueda en estrella 2](capturas/estrella-2.png)
 
 ```
 BFS:
@@ -178,8 +186,8 @@ Tablero 8×8:
 |-----------|-------|
 | **Completo** | ✅ Sí - Explora todo el árbol hasta la profundidad límite |
 | **Óptimo** | ✅ Sí - Encuentra la mejor jugada asumiendo juego perfecto del oponente |
-| **Complejidad Temporal** | O(b^m) donde b=movimientos promedio por posición, m=profundidad máxima |
-| **Complejidad Espacial** | O(b×m) - Solo mantiene el camino actual en la recursión |
+| **Complejidad Temporal** | O(b^m) = O(7^4) ≈ **2,401 nodos potenciales** |
+| **Complejidad Espacial** | O(b×m) = O(7×4) = **28 nodos en pila de recursión** |
 
 **Función de Evaluación:**
 ```
@@ -217,8 +225,8 @@ Valores:
 |-----------|-------|
 | **Completo** | ✅ Sí - Idéntico a Minimax |
 | **Óptimo** | ✅ Sí - Encuentra exactamente la misma mejor jugada que Minimax |
-| **Complejidad Temporal** | O(b^(m/2)) en el mejor caso (orden perfecto) |
-| **Complejidad Espacial** | O(b×m) - Igual que Minimax |
+| **Complejidad Temporal** | O(b^(m/2)) = O(7^2) ≈ **49 nodos** (mejor caso con poda óptima) |
+| **Complejidad Espacial** | O(b×m) = O(7×4) = **28 nodos en pila de recursión** |
 
 **Mecanismo de Poda:**
 ```
@@ -243,6 +251,18 @@ Donde:
 ---
 
 ### 📊 Resultados del Problema 2
+
+#### 0. Estado inicial del tablero
+![Estado inicial del tablero](capturas/damas-inicio.png)
+
+#### 1. Resultado de Minimax
+![Tablero damas usando minimax](capturas/damas-minimax.png)
+
+#### 2. Resultado de Poda Alfa-Beta (Alpha-Beta Pruning)
+![Tablero damas usando poda alfa-beta](capturas/damas-alfabeta.png)
+
+#### 3. Conclusion
+![Conslusion de las metodologias](capturas/damas-conclusion.png)
 
 ```
 Minimax:
