@@ -15,8 +15,7 @@ Este laboratorio también puede explorarse mediante una interfaz gráfica en el 
 
 Puedes probarlo desde el siguiente enlace:
 
-**[Abrir Laboratorio en Streamlit](https://streamlit.io/tu-enlace-personalizado)**
-> *(Reemplaza el enlace con el que te proporciona Streamlit Cloud una vez desplegado)*
+**[Abrir Laboratorio en Streamlit](https://laboratorio1-ia-2-2025.streamlit.app/)**
 
 ### 🧠 ¿Qué incluye la interfaz?
 
