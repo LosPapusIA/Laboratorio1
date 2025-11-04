@@ -2,6 +2,7 @@ import heapq
 from collections import deque
 import time
 
+
 class Laberinto:
     def __init__(self, matriz):
         """
@@ -20,22 +21,29 @@ class Laberinto:
         # Encontrar posiciones del ratón y queso
         for i in range(self.filas):
             for j in range(self.columnas):
-                if matriz[i][j] == 'R':
+                if matriz[i][j] == "R":
                     self.inicio = (i, j)
-                elif matriz[i][j] == 'Q':
+                elif matriz[i][j] == "Q":
                     self.objetivo = (i, j)
 
     def es_valido(self, pos):
         """Verifica si una posición es válida"""
         fila, col = pos
-        return (0 <= fila < self.filas and
-                0 <= col < self.columnas and
-                self.matriz[fila][col] != 1)
+        return (
+            0 <= fila < self.filas
+            and 0 <= col < self.columnas
+            and self.matriz[fila][col] != 1
+        )
 
     def obtener_vecinos(self, pos):
         """Obtiene los vecinos válidos de una posición"""
         fila, col = pos
-        movimientos = [(0, 1), (1, 0), (0, -1), (-1, 0)]  # derecha, abajo, izquierda, arriba
+        movimientos = [
+            (0, 1),
+            (1, 0),
+            (0, -1),
+            (-1, 0),
+        ]  # derecha, abajo, izquierda, arriba
         vecinos = []
 
         for mov_fila, mov_col in movimientos:
@@ -64,9 +72,9 @@ class Laberinto:
         - Explora nivel por nivel
         - Garantiza encontrar el camino más corto
         """
-        print("\n" + "="*60)
+        print("\n" + "=" * 60)
         print("BÚSQUEDA EN ANCHURA (BFS)")
-        print("="*60)
+        print("=" * 60)
 
         inicio_tiempo = time.time()
 
@@ -116,9 +124,9 @@ class Laberinto:
         - f(n) = g(n) + h(n)
         - Muy eficiente para encontrar caminos óptimos
         """
-        print("\n" + "="*60)
+        print("\n" + "=" * 60)
         print("BÚSQUEDA A* (A-STAR)")
-        print("="*60)
+        print("=" * 60)
 
         inicio_tiempo = time.time()
 
@@ -179,9 +187,9 @@ class Laberinto:
 
     def visualizar_camino(self, camino, nombre_metodo):
         """Visualiza el laberinto con el camino encontrado"""
-        print(f"\n{'='*60}")
+        print(f"\n{'=' * 60}")
         print(f"VISUALIZACIÓN DEL CAMINO - {nombre_metodo}")
-        print(f"{'='*60}")
+        print(f"{'=' * 60}")
 
         # Crear copia del laberinto
         laberinto_visual = []
@@ -192,23 +200,23 @@ class Laberinto:
         if camino:
             for i, pos in enumerate(camino):
                 fila, col = pos
-                if laberinto_visual[fila][col] not in ['R', 'Q']:
-                    laberinto_visual[fila][col] = '·'
+                if laberinto_visual[fila][col] not in ["R", "Q"]:
+                    laberinto_visual[fila][col] = "·"
 
         # Imprimir
         for fila in laberinto_visual:
-            fila_str = ''
+            fila_str = ""
             for celda in fila:
                 if celda == 1:
-                    fila_str += '█ '
-                elif celda == 'R':
-                    fila_str += 'R '
-                elif celda == 'Q':
-                    fila_str += 'Q '
-                elif celda == '·':
-                    fila_str += '· '
+                    fila_str += "█ "
+                elif celda == "R":
+                    fila_str += "R "
+                elif celda == "Q":
+                    fila_str += "Q "
+                elif celda == "·":
+                    fila_str += "· "
                 else:
-                    fila_str += '  '
+                    fila_str += "  "
             print(fila_str)
         print()
 
@@ -219,12 +227,12 @@ if __name__ == "__main__":
     # R = Ratón (inicio), Q = Queso (objetivo)
     # 0 = Camino libre, 1 = Pared
     laberinto_matriz = [
-        ['R', 0, 1, 0, 0, 0, 1],
+        ["R", 0, 1, 0, 0, 0, 1],
         [0, 0, 1, 0, 1, 0, 0],
         [1, 0, 0, 0, 1, 1, 0],
         [0, 0, 1, 0, 0, 0, 0],
         [0, 1, 1, 1, 1, 0, 1],
-        [0, 0, 0, 0, 0, 0, 'Q']
+        [0, 0, 0, 0, 0, 0, "Q"],
     ]
 
     # Crear laberinto
@@ -244,10 +252,12 @@ if __name__ == "__main__":
         laberinto.visualizar_camino(camino_a_star, "A*")
 
     # Comparación
-    print("="*60)
+    print("=" * 60)
     print("COMPARACIÓN DE MÉTODOS")
-    print("="*60)
+    print("=" * 60)
     print(f"BFS - Nodos explorados: {nodos_bfs}")
     print(f"A*  - Nodos explorados: {nodos_a_star}")
     print(f"\nA* exploró {nodos_bfs - nodos_a_star} nodos menos que BFS")
-    print(f"Eficiencia de A*: {(1 - nodos_a_star/nodos_bfs)*100:.1f}% más eficiente")
+    print(
+        f"Eficiencia de A*: {(1 - nodos_a_star / nodos_bfs) * 100:.1f}% más eficiente"
+    )

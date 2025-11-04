@@ -7,6 +7,27 @@
 
 ---
 
+## 🌐 Visualización Interactiva en Streamlit
+
+Este laboratorio también puede explorarse mediante una interfaz gráfica en el navegador gracias a **Streamlit**.
+
+### 🔗 Acceso directo
+
+Puedes probarlo desde el siguiente enlace:
+
+**[Abrir Laboratorio en Streamlit](https://streamlit.io/tu-enlace-personalizado)**
+> *(Reemplaza el enlace con el que te proporciona Streamlit Cloud una vez desplegado)*
+
+### 🧠 ¿Qué incluye la interfaz?
+
+- Visualización del laberinto y el camino encontrado (BFS y A*)
+- Tablero de damas con jugadas calculadas (Minimax y Alfa-Beta)
+- Métricas de rendimiento y comparación
+- Controles intuitivos para explorar cada algoritmo
+
+
+---
+
 ## Problema 1: Ratón Hambriento en el Laberinto
 
 ### 🐭 Descripción del Problema
